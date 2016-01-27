@@ -1,0 +1,52 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="drawer">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear" menu-toggle="left">
+            <i class="icon menu-icon ion-navicon"></i>
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-title align="center" valign="middle">
+          <h4><span style="color:white;">SAFER - HEALTHIER - PEOPLE</span></h4>     
+      </ion-nav-title>
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear" ng-click="showPopOverMenu($event)">
+            <i class="icon menu-icon ion-android-more-vertical"></i>
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" enable-menu-with-back-views="false">
+     
+  <ion-content >
+      <image src="img/drawer-image.jpg" style="max-width:100%; max-height:100%;"/>
+      <ion-list>
+         <div ng-repeat="group in groups">
+            <div ng-if="group.items.length != 0">
+                <ion-item  class="item-stable" ng-click="toggleGroup(group)">
+               <!--  <ion-item ng-if="group.items.length == 0" class="item-stable" menu-close href="#/app/sidemenu/{{group.url}}"> -->
+                {{group.name}}
+                &nbsp;
+                <div class="item-icon-right">
+                      <i class="icon " ng-class="isGroupShown(group) ? 'ion-ios-arrow-down' : 'ion-ios-arrow-right'" ng-show="group.items.length > 0"></i>
+                </div>
+              </ion-item>
+              <ion-item class="item-accordion"  ng-repeat="item in group.items" ng-show="isGroupShown(group)" menu-close ui-sref="app.sidemenu({menuItemUrl:item.url})"
+              ui-sref-active="active">
+                 &nbsp;&nbsp;{{item.item_name}}
+              </ion-item>
+          </div>
+           <div ng-if="group.items.length == 0">
+              <ion-item ng-if="group.items.length == 0" class="item-stable item-text-wrap" menu-close ui-sref ="app.sidemenu({menuItemUrl:group.url})" ui-sref-active="active">
+                {{group.name}}
+          </div>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
