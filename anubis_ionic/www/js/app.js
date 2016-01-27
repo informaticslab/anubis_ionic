@@ -33,7 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.aboutus', {
-      url: '/app/aboutus',
+      url: '/aboutus',
       views: {
         'menuContent': {
           templateUrl: 'templates/anubis-aboutus.html'
