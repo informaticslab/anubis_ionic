@@ -1,10 +1,10 @@
  <ion-popover-view class="fit">
     <ion-content>
       <ion-list>
-           <ion-item class="item-stable"  ui-sref="app.aboutus" ui-sref-active="active">
+           <ion-item class="item-stable"  ui-sref ="app.sidemenu({menuItemUrl:'anubis-aboutus.html'})" ui-sref-active="active" ng-click="closePopover();">
            		About Us
     		</ion-item>   
-    	    <ion-item class="item-stable" ui-sref="app.aboutus" ui-sref-active="active">
+    	    <ion-item class="item-stable" ui-sref ="app.sidemenu({menuItemUrl:'anubis-aboutus.html'})"  ng-click="closePopover();">
            		Menu Iem 2
     		</ion-item>   
       </ion-list>

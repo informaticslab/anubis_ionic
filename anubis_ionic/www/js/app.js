@@ -32,14 +32,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.aboutus', {
-      url: '/aboutus',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/anubis-aboutus.html'
-        }
-      }
-    })
+  // .state('app.aboutus', {
+  //     url: '/sidemenu/anubis-aboutus.html',
+  //     views: {
+  //       'menuContent': {
+  //         templateUrl: 'templates/anubis-aboutus.html'
+  //       }
+  //     }
+  //   })
     .state('app.sidemenu', {
       url: '/sidemenu/:menuItemUrl',
       views: {
@@ -61,5 +61,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   //   }
  // });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('app/aboutus');
+  $urlRouterProvider.otherwise('app/sidemenu/anubis-aboutus.html');
 });
