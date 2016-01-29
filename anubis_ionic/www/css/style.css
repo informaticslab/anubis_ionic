@@ -26,6 +26,7 @@ font-weight: 200;
 height:50;
 margin-top: 10px;
 margin-bottom: 20px;
+line-height: 100%;
 }
 
 .section-title{
@@ -34,6 +35,8 @@ font-family: RobotoDraft, Roboto, sans-serif;
 font-size: 24px;
 font-weight: 200;
 margin-top: 30px;
+line-height: 100%;
+margin-bottom: 20px;
 }
 
 .section-paragraph{
