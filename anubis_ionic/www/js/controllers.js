@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ui.router'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout,$state, $ionicSideMenuDelegate,$ionicPopover) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout,$state, $ionicSideMenuDelegate,$ionicPopover,$ionicSlideBoxDelegate,$ionicScrollDelegate) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,13 +9,9 @@ angular.module('starter.controllers', ['ui.router'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $ionicModal.fromTemplateUrl('templates/sidemenu/image-modal.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-  });
-
+  $scope.zoomMin = 1;
+  $scope.guidelinesImageSrc = 'img/image1.png';
+ 
   $scope.groups = [];
   $scope.groups = [
         { name: 'General Guidelines',
@@ -83,16 +79,26 @@ angular.module('starter.controllers', ['ui.router'])
 
 
 // image modal
-$scope.showImage = function() {
-  $scope.guidelinesimageSrc = 'img/image1.png';
-  $scope.openModal();
+$scope.showImages = function(index) {
+  $scope.activeSlide = index;
+  $scope.showModal('templates/sidemenu/img-modal-zoom.html');
 };
+
+$scope.showModal = function(templateUrl) {
+  $ionicModal.fromTemplateUrl(templateUrl, {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+    $scope.modal.show();
+  });
+}
   $scope.openModal = function() {
       $scope.modal.show();
     };
 
     $scope.closeModal = function() {
       $scope.modal.hide();
+      $scope.modal.remove()
     };
 
     //Cleanup the modal when we're done with it!
@@ -110,6 +116,7 @@ $scope.showImage = function() {
     $scope.$on('modal.shown', function() {
       //console.log('Modal is shown!');
     });
+
 
 //pop over menu
 

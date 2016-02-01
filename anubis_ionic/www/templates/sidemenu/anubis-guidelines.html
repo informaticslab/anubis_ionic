@@ -99,8 +99,14 @@ as to why it developed. For example, sepsis is not specific because a
 number of different conditions may have resulted in sepsis, whereas human
 immunodeficiency virus syndrome is specific.
 </p>
-	<img class="container" src="img/image1.png" ng-click="showImage()"/>
 <p>
+	<!-- <img class="container" src="img/image1.png" ng-click="showImage()"/> -->
+	<ion-scroll direction="xy">
+         <img ng-src="img/image1.png" ng-click="showImages(0)" class="image-list-thumb"/>
+    </ion-scroll>
+<p>
+
+
 In certifying the cause of death, any disease, abnormality, injury, or poisoning,
 if believed to have adversely affected the decedent, should be
 reported. If the use of alcohol and/or other substance, a smoking history,
